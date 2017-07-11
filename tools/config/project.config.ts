@@ -19,6 +19,13 @@ export class ProjectConfig extends SeedConfig {
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
 
+    // Add project lazy-load bundles
+    this.BUNDLES = [
+      ...this.BUNDLES,
+	  // 'myModule',
+	  // { path: 'myOtherModule', module: 'my-other.module' }
+    ];
+
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,

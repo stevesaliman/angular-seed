@@ -136,6 +136,19 @@ export class SeedConfig {
 
   BOOTSTRAP_PROD_MODULE = `${this.BOOTSTRAP_DIR}/` + 'main';
 
+  /**
+   * The bundles to be created to support lazy loaded modules.  Each entry
+   * can be one of two things.  It can be a map with a "path" and a "module".
+   * The path is the directory with the module, and the module is the name
+   * of the module's main TypeScript file.  If module's main file is
+   * <dirname>.module.ts, it can just be a string with the name of the
+   * directory.
+   * @type {[{path: string; module: string}]} or {string}
+   */
+  BUNDLES = [
+		'about'
+  ];
+
   NG_FACTORY_FILE = 'main-prod';
 
   BOOTSTRAP_FACTORY_PROD_MODULE = `${this.BOOTSTRAP_DIR}/${this.NG_FACTORY_FILE}`;
@@ -333,7 +346,7 @@ export class SeedConfig {
     { src: 'zone.js/dist/zone.js', inject: 'libs' },
     { src: 'zone.js/dist/long-stack-trace-zone.js', inject: 'libs', buildType: BUILD_TYPES.DEVELOPMENT },
     { src: 'intl/dist/Intl.min.js', inject: 'shims' },
-    { src: 'systemjs/dist/system.src.js', inject: 'shims', buildType: BUILD_TYPES.DEVELOPMENT },
+    { src: 'systemjs/dist/system.src.js', inject: 'shims' },
     // Temporary fix. See https://github.com/angular/angular/issues/9359
     { src: '.tmp/Rx.min.js', inject: 'libs', buildType: BUILD_TYPES.DEVELOPMENT },
   ];
@@ -448,6 +461,11 @@ export class SeedConfig {
       'node_modules/*': 'node_modules/*',
       '*': 'node_modules/*'
     },
+	meta: {
+	  '*.json': {
+	    format: 'json'
+	  }
+	},
     packages: {
       '@angular/animations': {
         main: 'bundles/animations.umd.js',
@@ -496,7 +514,8 @@ export class SeedConfig {
       'rxjs': {
         main: 'Rx.js',
         defaultExtension: 'js'
-      }
+      },
+	  '': { defaultExtension: 'js' }
     }
   };
 

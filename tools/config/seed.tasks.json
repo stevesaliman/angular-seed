@@ -79,6 +79,23 @@
     "minify.index"
   ],
 
+  "build.prod.lazy": [
+	"initialize",
+	"check.tools",
+	"clean.prod",
+	"tslint",
+	"build.assets.prod",
+	"build.html_css",
+	"copy.prod",
+	"build.js.prod",
+	"build.bundles",
+	"build.bundles.app.lazy",
+	"minify.bundles",
+	"build.index.prod",
+	"sw.manifest.static",
+	"minify.index"
+  ],
+
   "build.test": [
     "initialize",
     "clean.once",
@@ -124,6 +141,11 @@
   "serve.prod.rollup.aot": [
     "build.prod.rollup.aot",
     "server.prod"
+  ],
+
+  "serve.prod.lazy": [
+	"build.prod.lazy",
+	"server.prod"
   ],
 
   "test": [
