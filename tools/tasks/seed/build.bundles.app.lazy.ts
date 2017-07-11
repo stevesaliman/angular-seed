@@ -36,7 +36,7 @@ $traceurRuntime = {
   }
 };
 System.config({
-     packages: ${JSON.stringify(Config.SYSTEM_BUILDER_CONFIG.packages)} 
+     packages: ${JSON.stringify(Config.SYSTEM_BUILDER_CONFIG.packages)}
  });
 (function () {
   Object.keys(System.defined).forEach(function (m) {
